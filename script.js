@@ -17,22 +17,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. SECUENCIA DE ENTRADA HERO
   gsap.set("#nav", { opacity: 0, y: -20 });
   gsap.set(".headline-small .word > span", { y: "105%" });
-  gsap.set(".headline-big .letter", { y: 60, opacity: 0 });
+  gsap.set(".headline-big .letter", { y: 40, opacity: 0 });
   gsap.set("#subline", { opacity: 0, y: 20 });
 
-  document.querySelectorAll(".card").forEach((card) => {
-    const rot = parseFloat(card.dataset.rot) || 0;
-    card.dataset.restRot = rot;
-    gsap.set(card, { y: -500, rotation: rot + 20, opacity: 0, scale: 0.8 });
-  });
+  const isMobile = window.innerWidth <= 900;
+
+  if (!isMobile) {
+    document.querySelectorAll(".card").forEach((card) => {
+      const rot = parseFloat(card.dataset.rot) || 0;
+      card.dataset.restRot = rot;
+      gsap.set(card, { y: -300, rotation: rot + 15, opacity: 0, scale: 0.8 });
+    });
+  } else {
+    gsap.set(".card", { opacity: 0, y: 30 });
+  }
 
   const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
 
   intro
     .to("#nav", { opacity: 1, y: 0, duration: 0.8 }, 0.1)
     .to(".headline-small .word > span", { y: "0%", duration: 0.9, stagger: 0.08 }, 0.2)
-    .to(".headline-big .letter", { y: 0, opacity: 1, duration: 0.7, stagger: 0.04, ease: "back.out(1.4)" }, 0.4)
-    .to(".card", {
+    .to(".headline-big .letter", { y: 0, opacity: 1, duration: 0.7, stagger: 0.04, ease: "back.out(1.4)" }, 0.4);
+
+  if (!isMobile) {
+    intro.to(".card", {
       y: 0, 
       opacity: 1, 
       scale: 1,
@@ -40,20 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
       duration: 1.1, 
       stagger: 0.1, 
       ease: "bounce.out"
-    }, 0.6)
-    .to("#subline", { opacity: 1, y: 0, duration: 0.8 }, "-=0.5");
+    }, 0.6);
+  } else {
+    intro.to(".card", { opacity: 1, y: 0, duration: 0.6, stagger: 0.1 }, 0.6);
+  }
 
-  // 3. SCROLL INTERACTIVO SECCIÓN PRESENTE (PINNED)
-  const presenteTL = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#presente",
-      start: "top top",
-      end: "bottom bottom",
-      pin: ".sticky-wrapper",
-      scrub: 0.5,
-    }
-  });
+  intro.to("#subline", { opacity: 1, y: 0, duration: 0.8 }, "-=0.5");
 
+  // 3. SCROLL INTERACTIVO SECCIÓN PRESENTE (CON SOPORTE RESPONSIVE)
   const metrics = [
     document.getElementById("m1"), 
     document.getElementById("m2"), 
@@ -63,28 +65,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const screenTitle = document.querySelector("#techScreen .screen-title");
   const screenBody = document.querySelector("#techScreen .screen-body");
 
-  presenteTL
-    .add(() => {
-      metrics.forEach(m => m.classList.remove("active"));
-      metrics[0].classList.add("active");
-      screenTitle.innerText = "Módulo 01: Balance de Reservas";
-      screenBody.innerHTML = "Gas: Caída acumulada del 68%.<br>Petróleo: Caída acumulada del 60%.<br>Sostenimiento mediante compresión secundaria en yacimientos maduros.";
-    })
-    .to({}, { duration: 1 })
-    .add(() => {
-      metrics.forEach(m => m.classList.remove("active"));
-      metrics[1].classList.add("active");
-      screenTitle.innerText = "Módulo 02: Aporte Nacional Real";
-      screenBody.innerHTML = "Volumen conjunto (Cuyana, Austral, NOA): ~27k b/d.<br>Cuenca Neuquina: 74% de la matriz.<br>Cese de refinación en Campo Durán por bajo volumen local.";
-    })
-    .to({}, { duration: 1 })
-    .add(() => {
-      metrics.forEach(m => m.classList.remove("active"));
-      metrics[2].classList.add("active");
-      screenTitle.innerText = "Módulo 03: Reversión & Logística";
-      screenBody.innerHTML = "Gasoducto Norte Revertido (Nov 2024).<br>Flujo invertido: Gas desde Vaca Muerta abastece al NOA.<br>Redistribución de estaciones Refinor activa.";
-    })
-    .to({}, { duration: 1 });
+  ScrollTrigger.matchMedia({
+    // ESCRITORIO: Efecto Pinning
+    "(min-width: 901px)": function() {
+      const presenteTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#presente",
+          start: "top top",
+          end: "bottom bottom",
+          pin: ".sticky-wrapper",
+          scrub: 0.5,
+        }
+      });
+
+      presenteTL
+        .add(() => {
+          metrics.forEach(m => m.classList.remove("active"));
+          metrics[0].classList.add("active");
+          screenTitle.innerText = "Módulo 01: Balance de Reservas";
+          screenBody.innerHTML = "Gas: Caída acumulada del 68%.<br>Petróleo: Caída acumulada del 60%.<br>Sostenimiento mediante compresión secundaria en yacimientos maduros.";
+        })
+        .to({}, { duration: 1 })
+        .add(() => {
+          metrics.forEach(m => m.classList.remove("active"));
+          metrics[1].classList.add("active");
+          screenTitle.innerText = "Módulo 02: Aporte Nacional Real";
+          screenBody.innerHTML = "Volumen conjunto (Cuyana, Austral, NOA): ~27k b/d.<br>Cuenca Neuquina: 74% de la matriz.<br>Cese de refinación en Campo Durán por bajo volumen local.";
+        })
+        .to({}, { duration: 1 })
+        .add(() => {
+          metrics.forEach(m => m.classList.remove("active"));
+          metrics[2].classList.add("active");
+          screenTitle.innerText = "Módulo 03: Reversión & Logística";
+          screenBody.innerHTML = "Gasoducto Norte Revertido (Nov 2024).<br>Flujo invertido: Gas desde Vaca Muerta abastece al NOA.<br>Redistribución de estaciones Refinor activa.";
+        })
+        .to({}, { duration: 1 });
+    }
+  });
 
   // 4. MAPA TOPOGRÁFICO LEAFLET (OPENTOPO)
   const mapElement = document.getElementById('map');
@@ -213,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
   gsap.utils.toArray(".history-card, .futuro-card, .simulador-card").forEach((card) => {
     gsap.from(card, {
       opacity: 0,
-      y: 40,
+      y: 30,
       duration: 0.8,
       scrollTrigger: {
         trigger: card,

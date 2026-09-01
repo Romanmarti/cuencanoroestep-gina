@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Scripts de Librerías Externas (Leaflet, Three.js, Chart.js) -->
+  <!-- Scripts de Librerías Externas -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
@@ -222,13 +222,13 @@
     </div>
   </section>
 
-  <!-- SECCIÓN 3: MAPAS Y SISTEMAS GIS (INTEGRACIÓN) -->
+  <!-- SECCIÓN 3: MAPAS Y SISTEMAS GIS -->
   <section class="sec-block" id="gis-mapas">
     <div class="section-container">
       <span class="sec-tag">03 / EXPLORACIÓN CARTOGRÁFICA Y GIS</span>
       <h2 class="sec-title">Visores Cartográficos e Infraestructura</h2>
       <p class="section-lead">
-        Consulte la distribución territorial de los yacimientos clave mediante el mapa interactivo topográfico, o acceda directamente al catastro oficial de la Secretaría de Energía de la Nación[cite: 8].
+        Consulte la distribución territorial de los yacimientos clave mediante el mapa interactivo topográfico, o acceda directamente al catastro oficial de la Secretaría de Energía de la Nación.
       </p>
 
       <!-- MAPA 1: LEAFLET INTERACTIVO CON PANEL LATERAL -->
@@ -262,14 +262,6 @@
           </iframe>
         </div>
       </div>
-
-      <!-- HISTÓRICO DE PRODUCCIÓN (GRÁFICO CHART.JS) -->
-      <div class="chart-block" style="margin-top: 50px;">
-        <h3 class="sub-map-title">3.3 Tendencia Histórica de Producción de Gas y Condensado</h3>
-        <div class="chart-wrapper">
-          <canvas id="productionChart"></canvas>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -301,42 +293,6 @@
           <p>Provincias como Salta promueven la licitación de bloques exploratorios (Pichanal, Yariguarenda, San Carlos). Frente al Régimen de Incentivos a las Grandes Inversiones (RIGI), la región requiere un marco normativo adaptado a "cuencas marginales" para competir con el no convencional de la Cuenca Neuquina.</p>
         </div>
       </div>
-
-      <!-- Cuadro Técnico Consolidado -->
-      <div class="tech-summary-table">
-        <h3>Resumen de Unidades Geológicas y Campos Activos</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Sistema Geológico</th>
-              <th>Formación Principal</th>
-              <th>Tipo de Hidrocarburo</th>
-              <th>Campos Principalmente Asociados</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Devónico Profundo</td>
-              <td>Los Monos / Santa Rosa / Ramos</td>
-              <td>Gas Natural y Condensado</td>
-              <td>Ramos, Aguaragüe, Acambuco (San Pedrito, Macueta)</td>
-            </tr>
-            <tr>
-              <td>Secuencia Carbónica</td>
-              <td>Tupambi / Tarija / Las Peñas</td>
-              <td>Gas, Condensado y Petróleo Liviano</td>
-              <td>Campo Durán, Madrejones, San Pedro, Tranquitas</td>
-            </tr>
-            <tr>
-              <td>Cretácico (Grupo Salta)</td>
-              <td>Yacoraite / Olmedo / Maíz Gordo</td>
-              <td>Petróleo Crudo Liviano (40-45° API)</td>
-              <td>Caimancito, Puesto Guardián, Palmar Largo, Los Blancos</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
     </div>
   </section>
 
@@ -351,15 +307,9 @@
 
       <div class="simulador-card">
         <div class="simulador-info">
-          <h3>Simulador Técnico de la cuenca del NOA</h3>
-          <p>
-
-Una experiencia técnica e interactiva de exploración y producción de hidrocarburos
-
-Recuperando la Cuenca es un simulador educativo interactivo diseñado para introducir a estudiantes y profesionales en los desafíos reales de la industria del Petróleo y Gas (Upstream). La plataforma combina la toma de decisiones financieras, la prospección geofísica y la resolución de problemas técnicos en campo dentro de un entorno gamificado.
-
-</p>
-          <a href="https://simuladortecnniconoroeste.vercel.app" target="_blank" class="simulador-btn">
+          <h3>Simulador Técnico de Proyección de Reservas</h3>
+          <p>Obtenga estimaciones sobre la vida útil de los pozos, caudales de declive anual y horizontes de rentabilidad operativa según parámetros ajustables de compresión e inyección.</p>
+          <a href="https://simulador-cuenca-noa.com" target="_blank" class="simulador-btn">
             ACCEDER AL SIMULADOR DE CUENCA
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
               <line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" />
@@ -373,13 +323,13 @@ Recuperando la Cuenca es un simulador educativo interactivo diseñado para intro
   <!-- FOOTER -->
   <footer class="sec-cta-footer">
     <div class="footer-content">
-      <h2>PROYECTO DE LA CUENCA DEL NOA</h2>
-      <p></p>
-      <a href="mailto:contacto@cuencanoa.com" class="footer-btn">OPINA DEL PROYECTO</a>
+      <h2>RESTRUCTURACIÓN Y FUTURO ENERGÉTICO</h2>
+      <p>Información técnica sintetizada a partir de normativas nacionales, informes de la Secretaría de Energía y publicaciones de investigación técnica.</p>
+      <a href="mailto:contacto@cuencanoa.com" class="footer-btn">SOLICITAR ANÁLISIS DE CUENCA</a>
     </div>
   </footer>
 
-  <!-- Scripts Interaccion y Animaciones -->
+  <!-- Scripts Interacción y Animaciones -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
