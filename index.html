@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cuenca NOA — Historia, Presente y Futuro Técnico</title>
+  <title>Cuenca NOA — Historia, Presente, Futuro & Geología Digital</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&display=swap" rel="stylesheet" />
 
+  <!-- Hojas de Estilo Externas para Mapas -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Scripts de Librerías Externas (Leaflet, Three.js, Chart.js) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -29,16 +37,19 @@
       CUENCA NOA — SISTEMA HIDROCARBURÍFERO
     </div>
     <ul class="nav-links">
-      <li><a href="#historia">01. Historia &amp; Evolución</a></li>
-      <li><a href="#presente">02. Presente Operativo</a></li>
-      <li><a href="#futuro">03. Futuro &amp; Geología</a></li>
+      <li><a href="#historia">01. Historia</a></li>
+      <li><a href="#presente">02. Presente</a></li>
+      <li><a href="#gis-mapas">03. Mapas &amp; GIS</a></li>
+      <li><a href="#futuro">04. Geología 3D &amp; Futuro</a></li>
+      <li><a href="#simulador">05. Simulador</a></li>
     </ul>
-    <button class="nav-cta">
-      Descargar Informe
+    <!-- Botón enlazado a Google Forms -->
+    <a href="https://forms.google.com" target="_blank" class="nav-cta">
+      Opina del proyecto
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
         <line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" />
       </svg>
-    </button>
+    </a>
   </nav>
 
   <!-- HERO / INTRODUCCIÓN -->
@@ -89,11 +100,35 @@
     </div>
 
     <p class="subline" id="subline">
-      Un recorrido exhaustivo por la evolución histórica, los desafíos técnico-operativos del presente y la prospección geológica futura de la <strong>Cuenca Noroeste Argentina</strong>.
+      Un recorrido exhaustivo por la evolución histórica, los desafíos técnico-operativos del presente, el monitoreo GIS en tiempo real y la prospección geológica futura de la <strong>Cuenca Noroeste Argentina</strong>.
     </p>
   </section>
 
-  <!-- SECCIÓN 1: HISTORIA (Línea del tiempo y Análisis Estratigráfico) -->
+  <!-- KPI BAR INTEGRADA -->
+  <section class="kpi-bar">
+    <div class="kpi-card">
+      <div class="kpi-header"><span>PRODUCCIÓN CONDENSADO</span><span class="badge">SEC. ENERGÍA</span></div>
+      <div class="kpi-value">1.850 <span>m³/d</span></div>
+      <div class="kpi-subtext">Petróleo Liviano / Condensado</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-header"><span>PRODUCCIÓN GAS NATURAL</span><span class="badge">SEC. ENERGÍA</span></div>
+      <div class="kpi-value">12.872 <span>MMm³/d</span></div>
+      <div class="kpi-subtext">Cuenca Gasífera Subandina</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-header"><span>SUPERFICIE TOTAL</span></div>
+      <div class="kpi-value">~115.000 <span>km²</span></div>
+      <div class="kpi-subtext">Salta / Jujuy / Formosa</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-header"><span>ROCA MADRE PRINCIPAL</span></div>
+      <div class="kpi-value text-medium">Fm. Los Monos / Icla</div>
+      <div class="kpi-subtext">Devónico (Marino Profundo)</div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 1: HISTORIA -->
   <section class="sec-block" id="historia">
     <div class="section-container">
       <span class="sec-tag">01 / HISTORIA Y DESARROLLO EMPRESARIAL</span>
@@ -143,7 +178,7 @@
     </div>
   </section>
 
-  <!-- SECCIÓN 2: PRESENTE EN DÍA (Sticky Scroll & Análisis Técnico) -->
+  <!-- SECCIÓN 2: PRESENTE EN DÍA -->
   <section class="sec-block sec-presente" id="presente">
     <div class="sticky-wrapper">
       <div class="presente-info">
@@ -187,16 +222,66 @@
     </div>
   </section>
 
-  <!-- SECCIÓN 3: FUTURO Y MARCO GEOLÓGICO -->
+  <!-- SECCIÓN 3: MAPAS Y SISTEMAS GIS (INTEGRACIÓN) -->
+  <section class="sec-block" id="gis-mapas">
+    <div class="section-container">
+      <span class="sec-tag">03 / EXPLORACIÓN CARTOGRÁFICA Y GIS</span>
+      <h2 class="sec-title">Visores Cartográficos e Infraestructura</h2>
+      <p class="section-lead">
+        Consulte la distribución territorial de los yacimientos clave mediante el mapa interactivo topográfico, o acceda directamente al catastro oficial de la Secretaría de Energía de la Nación[cite: 8].
+      </p>
+
+      <!-- MAPA 1: LEAFLET INTERACTIVO CON PANEL LATERAL -->
+      <div class="map-block">
+        <h3 class="sub-map-title">3.1 Visor Topográfico de Yacimientos Clave (Leaflet)</h3>
+        <div class="dashboard-grid">
+          <div class="map-container"><div id="map"></div></div>
+          <aside class="info-panel">
+            <h3>Seleccione un Yacimiento</h3>
+            <p class="instruction">Haga clic en los marcadores interactivos del mapa para consultar los datos técnicos del área.</p>
+            <div class="info-field"><span class="field-label">Yacimiento / Campo:</span><span class="field-value" id="info-nombre">-</span></div>
+            <div class="info-field"><span class="field-label">Provincia:</span><span class="field-value" id="info-provincia">-</span></div>
+            <div class="info-field"><span class="field-label">Operador:</span><span class="field-value" id="info-operador">-</span></div>
+            <div class="info-field"><span class="field-label">Reservorio:</span><span class="field-value" id="info-reservorio">-</span></div>
+            <div class="info-field"><span class="field-label">Profundidad Media:</span><span class="field-value" id="info-profundidad">-</span></div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- MAPA 2: VISOR OFICIAL SIG SECRETARÍA DE ENERGÍA -->
+      <div class="map-block" style="margin-top: 50px;">
+        <h3 class="sub-map-title">3.2 Visor Oficial SIG — Secretaría de Energía (Sísmica 2D/3D y Catastro)</h3>
+        <div class="official-map-wrapper">
+          <iframe 
+            src="https://sig.energia.gob.ar/visor/visorsig.php?t=4" 
+            width="100%" 
+            height="550px" 
+            style="border: 1px solid var(--line); border-radius: 6px;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- HISTÓRICO DE PRODUCCIÓN (GRÁFICO CHART.JS) -->
+      <div class="chart-block" style="margin-top: 50px;">
+        <h3 class="sub-map-title">3.3 Tendencia Histórica de Producción de Gas y Condensado</h3>
+        <div class="chart-wrapper">
+          <canvas id="productionChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: GEOLOGÍA 3D Y FUTURO -->
   <section class="sec-block" id="futuro">
     <div class="section-container">
-      <span class="sec-tag">03 / GEOLOGÍA PROFUNDA Y PERSPECTIVAS</span>
-      <h2 class="sec-title">El Sistema Geológico y Proyecciones</h2>
+      <span class="sec-tag">04 /PERSPECTIVAS</span>
+      <h2 class="sec-title">Proyecciones</h2>
 
       <p class="section-lead">
         El futuro hidrocarburífero del noroeste depende de la comprensión de sus tres cuencas sedimentarias superpuestas (más de 10 km de espesor sedimentario) y el desarrollo de recursos no convencionales.
       </p>
-
       <div class="futuro-grid">
         <div class="futuro-card">
           <div class="futuro-icon">01</div>
@@ -255,6 +340,30 @@
     </div>
   </section>
 
+  <!-- SECCIÓN 5: SIMULADOR INTERACTIVO -->
+  <section class="sec-block" id="simulador">
+    <div class="section-container">
+      <span class="sec-tag">05 / HERRAMIENTA INTERACTIVA</span>
+      <h2 class="sec-title">Simulador de Depreciación y Declinación</h2>
+      <p class="section-lead">
+        Esta herramienta permite modelar escenarios de producción y calcular la declinación hiperbólica/exponencial de campos maduros en la Cuenca Noroeste, estimando el impacto de proyectos de recuperación secundaria y declinación natural.
+      </p>
+
+      <div class="simulador-card">
+        <div class="simulador-info">
+          <h3>Simulador Técnico de Proyección de Reservas</h3>
+          <p>Obtenga estimaciones sobre la vida útil de los pozos, caudales de declive anual y horizontes de rentabilidad operativa según parámetros ajustables de compresión e inyección.</p>
+          <a href="https://simulador-cuenca-noa.com" target="_blank" class="simulador-btn">
+            ACCEDER AL SIMULADOR DE CUENCA
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="sec-cta-footer">
     <div class="footer-content">
@@ -264,7 +373,7 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Scripts Interaccion y Animaciones -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
