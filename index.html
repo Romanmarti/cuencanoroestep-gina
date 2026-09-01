@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuenca NOA — Historia, Presente y Futuro Técnico</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Capa de textura de grano -->
+  <div class="grain"></div>
+
+  <!-- Indicador Vertical de Scroll -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Navegación -->
+  <nav class="nav" id="nav">
+    <div class="logo">
+      <span class="logo-dot"></span>
+      CUENCA NOA — SISTEMA HIDROCARBURÍFERO
+    </div>
+    <ul class="nav-links">
+      <li><a href="#historia">01. Historia &amp; Evolución</a></li>
+      <li><a href="#presente">02. Presente Operativo</a></li>
+      <li><a href="#futuro">03. Futuro &amp; Geología</a></li>
+    </ul>
+    <button class="nav-cta">
+      Descargar Informe
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- HERO / INTRODUCCIÓN -->
+  <section class="hero" id="hero">
+    <h1 class="headline-small" id="headlineSmall">
+      <span class="word"><span>Complejo</span></span>&nbsp;
+      <span class="word"><span>Sedimentario</span></span>&nbsp;
+      <span class="word"><span>y</span></span>&nbsp;
+      <span class="word"><span>Estructural</span></span>
+    </h1>
+
+    <div class="headline-big-wrap">
+      <h2 class="headline-big" id="mainHeroTitle">
+        <span class="letter">N</span><span class="letter">O</span><span class="letter">R</span><span class="letter">O</span><span class="letter">E</span><span class="letter">S</span><span class="letter">T</span><span class="letter">E</span>
+      </h2>
+    </div>
+
+    <!-- Tarjetas Interactivas de Portada -->
+    <div class="cards-row" id="cardsRow">
+      <div class="card card-1" data-rot="-6">
+        <div class="card-inner">
+          <div class="card-badge">Pioneros</div>
+          <p class="card-title">Descubrimiento Somero (1926)</p>
+          <span class="card-stat">Lomitas y San Pedro</span>
+        </div>
+      </div>
+      <div class="card card-2" data-rot="4">
+        <div class="card-inner">
+          <div class="card-badge">Cretácico</div>
+          <p class="card-title">Fm. Yacoraite (1969)</p>
+          <span class="card-stat">Petróleo Liviano en Caimancito</span>
+        </div>
+      </div>
+      <div class="card card-3" data-rot="-3">
+        <div class="card-inner">
+          <div class="card-badge">Infraestructura</div>
+          <p class="card-title">Complejo Campo Durán</p>
+          <span class="card-stat">Refinería &amp; Poliductos</span>
+        </div>
+      </div>
+      <div class="card card-4" data-rot="5">
+        <div class="card-inner">
+          <div class="card-badge">Potencial</div>
+          <p class="card-title">Tight Gas Devónico</p>
+          <span class="card-stat">Formación Los Monos</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="subline" id="subline">
+      Un recorrido exhaustivo por la evolución histórica, los desafíos técnico-operativos del presente y la prospección geológica futura de la <strong>Cuenca Noroeste Argentina</strong>.
+    </p>
+  </section>
+
+  <!-- SECCIÓN 1: HISTORIA (Línea del tiempo y Análisis Estratigráfico) -->
+  <section class="sec-block" id="historia">
+    <div class="section-container">
+      <span class="sec-tag">01 / HISTORIA Y DESARROLLO EMPRESARIAL</span>
+      <h2 class="sec-title">Evolución Cronológica de la Cuenca</h2>
+      
+      <p class="section-lead">
+        La Cuenca Noroeste posee más de un siglo de historia hidrocarburífera, habiendo sido una de las pioneras en la explotación privada y estatal de Argentina. A continuación se detallan los hitos clave documentados en los registros oficiales.
+      </p>
+
+      <div class="history-grid">
+        <div class="history-card">
+          <span class="year-badge">1925 — 1930</span>
+          <h3>Primeras Concesiones y Descubrimientos Someros</h3>
+          <p>En 1925, la provincia de Salta otorgó concesiones a Standard Oil (anuladas en 1928). Entre 1926 y 1930 se descubrieron los campos de Lomitas, Aguas Blancas, San Pedro, Vespucio y Tranquitas dentro del Cinturón Plegado Subandino, produciendo petróleo liviano y gas en reservorios carbónicos someros (Formaciones Tupambi, Tarija y Las Peñas, entre 500 y 1.200 m de profundidad).</p>
+        </div>
+
+        <div class="history-card">
+          <span class="year-badge">1951 — 1962</span>
+          <h3>La Era del Gas Profundo y Campo Durán</h3>
+          <p>Una segunda etapa exploratoria alcanzó profundidades de 2.700 a 4.050 metros, descubriendo yacimientos de condensado de escala gigante como Campo Durán, Madrejones, Icua y Tonono. Esta fase dio origen a la construcción de la Refinería de Campo Durán y el tendido del gasoducto troncal hacia Buenos Aires.</p>
+        </div>
+
+        <div class="history-card">
+          <span class="year-badge">1969 — 1984</span>
+          <h3>El Hito del Cretácico y Expansión Oriental</h3>
+          <p>En 1969 se descubrió el yacimiento Caimancito en Jujuy, el hallazgo petrolero más relevante de la formación cretácica Yacoraite. En 1984, el descubrimiento de Palmar Largo en Formosa expandió la frontera exploratoria hacia la llanura chaqueña.</p>
+        </div>
+
+        <div class="history-card">
+          <span class="year-badge">1992 — 2010s</span>
+          <h3>Privatización, UTEs y Reconfiguración Privada</h3>
+          <p>Con la privatización de YPF (Decreto N.º 305/1992) se licitaron concesiones asociadas y se vendió el 70% de Refinor S.A. Operadores globales y locales como Pluspetrol, Pan American Energy (PAE), Tecpetrol, CGC y Gran Tierra Energy consolidaron su presencia en bloques maduros.</p>
+        </div>
+
+        <div class="history-card">
+          <span class="year-badge">2011 — 2024</span>
+          <h3>Consolidación Operativa de President Petroleum</h3>
+          <p>President Petroleum asumió la operación exclusiva del bloque Puesto Guardián y áreas circundantes (Dos Puntitas, Pozo Escondido). Paralelamente, en mayo de 2024, Tecpetrol adquirió la participación de Pluspetrol en el yacimiento Ramos, consolidando el control operativo del área Subandina.</p>
+        </div>
+
+        <div class="history-card">
+          <span class="year-badge">2025 — 2026</span>
+          <h3>Quiebra, Reestructuración de Refinor y Control Estatal</h3>
+          <p>En abril de 2025, Refinor discontinuó la refinación de crudo en Campo Durán. En agosto de 2025, el Juzgado Comercial N.º 23 decretó la quiebra de President Petroleum S.A., llevando al Gobierno de Salta a intervenir Puesto Guardián. En octubre de 2025, YPF compró el 50% restante de Refinor al Grupo Integra, asumiendo el control total.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: PRESENTE EN DÍA (Sticky Scroll & Análisis Técnico) -->
+  <section class="sec-block sec-presente" id="presente">
+    <div class="sticky-wrapper">
+      <div class="presente-info">
+        <span class="sec-tag">02 / DIAGNÓSTICO Y COYUNTURA OPERATIVA</span>
+        <h2 class="sec-title">La Realidad de la Cuenca en 2026</h2>
+        <p class="presente-desc">
+          Un análisis técnico minucioso sobre el estado de producción, el comportamiento de las reservas y el declive estructural en relación con la matriz energética nacional.
+        </p>
+        
+        <div class="metrics-list">
+          <div class="metric-item active" id="m1">
+            <h4>Declive de Reservas Comprobadas (-50% a -68%)</h4>
+            <p>Según informes del IAE "General Mosconi", las reservas comprobadas cayeron drásticamente en la última década: el gas sufrió una caída acumulada del 68% y el petróleo un 60%, siendo la cuenca con mayor retracción relativa del país.</p>
+          </div>
+
+          <div class="metric-item" id="m2">
+            <h4>Aporte Marginal a la Producción Nacional (2025-2026)</h4>
+            <p>Con una producción nacional de petróleo de 794.000 barriles diarios, la suma conjunta de las cuencas Cuyana, Austral y Noroeste representa apenas 27.000 b/d (~3% del total), donde el volumen aportado por la Cuenca NOA es minoritario debido a su perfil predominantemente gasífero.</p>
+          </div>
+
+          <div class="metric-item" id="m3">
+            <h4>Infraestructura Estratégica y Reversión</h4>
+            <p>El cese del procesamiento de crudo en la Destilería de Campo Durán convirtió al complejo en un nodo logístico. La finalización de la Reversión del Gasoducto Norte (noviembre de 2024) permite transportar gas de Vaca Muerta hacia el NOA para suplir la caída local y de las importaciones bolivianas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="presente-visual">
+        <div class="tech-box">
+          <div class="tech-status">
+            ESTADO OPERATIVO 2026: <span class="status-dot"></span> MONITOREO ACTIVO
+          </div>
+          <div class="tech-screen" id="techScreen">
+            <div class="screen-content" id="screenContent">
+              <p class="screen-title">Módulo 01: Balance de Reservas</p>
+              <p class="screen-body">Gas: Caída acumulada del 68%.<br>Petróleo: Caída acumulada del 60%.<br>Sostenimiento mediante compresión secundaria en yacimientos maduros.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: FUTURO Y MARCO GEOLÓGICO -->
+  <section class="sec-block" id="futuro">
+    <div class="section-container">
+      <span class="sec-tag">03 / GEOLOGÍA PROFUNDA Y PERSPECTIVAS</span>
+      <h2 class="sec-title">El Sistema Geológico y Proyecciones</h2>
+
+      <p class="section-lead">
+        El futuro hidrocarburífero del noroeste depende de la comprensión de sus tres cuencas sedimentarias superpuestas (más de 10 km de espesor sedimentario) y el desarrollo de recursos no convencionales.
+      </p>
+
+      <div class="futuro-grid">
+        <div class="futuro-card">
+          <div class="futuro-icon">01</div>
+          <h3>Secuencia Siluro-Devónica (Paleozoico)</h3>
+          <p>Integrada por las Formaciones Baritú, Los Monos, Kirusillas, Santa Rosa y Ramos. La Fm. Los Monos actúa como la principal roca generadora y sello regional. El potencial futuro radica en el desarrollo de reservorios de <strong>tight gas</strong> en profundidades superiores a los 3.800 metros.</p>
+        </div>
+
+        <div class="futuro-card">
+          <div class="futuro-icon">02</div>
+          <h3>Cuenca Cretácica — Grupo Salta</h3>
+          <p>Comprende los Subgrupos Pirgua, Balbuena y Santa Bárbara. La <strong>Formación Yacoraite</strong> (Maastrichtiano) actúa como roca generadora y reservorio simultáneo (areniscas y calizas oolíticas/fisuradas). El desafío es reactivar el potencial remanente mediante recuperación mejorada en subcuencas como Lomas de Olmedo.</p>
+        </div>
+
+        <div class="futuro-card">
+          <div class="futuro-icon">03</div>
+          <h3>Licitaciones de Áreas Libres y RIGI</h3>
+          <p>Provincias como Salta promueven la licitación de bloques exploratorios (Pichanal, Yariguarenda, San Carlos). Frente al Régimen de Incentivos a las Grandes Inversiones (RIGI), la región requiere un marco normativo adaptado a "cuencas marginales" para competir con el no convencional de la Cuenca Neuquina.</p>
+        </div>
+      </div>
+
+      <!-- Cuadro Técnico Consolidado -->
+      <div class="tech-summary-table">
+        <h3>Resumen de Unidades Geológicas y Campos Activos</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Sistema Geológico</th>
+              <th>Formación Principal</th>
+              <th>Tipo de Hidrocarburo</th>
+              <th>Campos Principalmente Asociados</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Devónico Profundo</td>
+              <td>Los Monos / Santa Rosa / Ramos</td>
+              <td>Gas Natural y Condensado</td>
+              <td>Ramos, Aguaragüe, Acambuco (San Pedrito, Macueta)</td>
+            </tr>
+            <tr>
+              <td>Secuencia Carbónica</td>
+              <td>Tupambi / Tarija / Las Peñas</td>
+              <td>Gas, Condensado y Petróleo Liviano</td>
+              <td>Campo Durán, Madrejones, San Pedro, Tranquitas</td>
+            </tr>
+            <tr>
+              <td>Cretácico (Grupo Salta)</td>
+              <td>Yacoraite / Olmedo / Maíz Gordo</td>
+              <td>Petróleo Crudo Liviano (40-45° API)</td>
+              <td>Caimancito, Puesto Guardián, Palmar Largo, Los Blancos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="sec-cta-footer">
+    <div class="footer-content">
+      <h2>RESTRUCTURACIÓN Y FUTURO ENERGÉTICO</h2>
+      <p>Información técnica sintetizada a partir de normativas nacionales, informes de la Secretaría de Energía y publicaciones de investigación técnica.</p>
+      <a href="mailto:contacto@cuencanoa.com" class="footer-btn">SOLICITAR ANÁLISIS DE CUENCA</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
